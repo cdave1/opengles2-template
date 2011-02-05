@@ -18,27 +18,17 @@
  
  */
 
-
 #include "RenderController.h"
 #include <strings.h>
 
+#define MAX_VERTEX_COUNT 8192
 
-#define __11 0
-#define __21 1
-#define __31 2
-#define __41 3
-#define __12 4
-#define __22 5
-#define __32 6
-#define __42 7
-#define __13 8
-#define __23 9
-#define __33 10
-#define __43 11
-#define __14 12
-#define __24 13
-#define __34 14
-#define __44 15
+typedef struct vertex 
+{
+	float xyzv[4];
+	float st[2];
+	float rgba[4];
+} vertex_t;
 
 
 static vertex_t vertices[MAX_VERTEX_COUNT];
