@@ -1,13 +1,44 @@
 /*
- *  RenderController.c
- *  OpenGLTest3
- *
- *  Created by David Petrie on 18/05/10.
- *  Copyright 2010 n/a. All rights reserved.
- *
+ 
+ Copyright (c) 2011 David Petrie david@davidpetrie.com
+ 
+ This software is provided 'as-is', without any express or implied warranty.
+ In no event will the authors be held liable for any damages arising from the 
+ use of this software. Permission is granted to anyone to use this software for
+ any purpose, including commercial applications, and to alter it and 
+ redistribute it freely, subject to the following restrictions:
+ 
+ 1. The origin of this software must not be misrepresented; you must not claim 
+ that you wrote the original software. If you use this software in a product, an 
+ acknowledgment in the product documentation would be appreciated but is not 
+ required.
+ 2. Altered source versions must be plainly marked as such, and must not be 
+ misrepresented as being the original software.
+ 3. This notice may not be removed or altered from any source distribution.
+ 
  */
 
+
 #include "RenderController.h"
+#include <strings.h>
+
+
+#define __11 0
+#define __21 1
+#define __31 2
+#define __41 3
+#define __12 4
+#define __22 5
+#define __32 6
+#define __42 7
+#define __13 8
+#define __23 9
+#define __33 10
+#define __43 11
+#define __14 12
+#define __24 13
+#define __34 14
+#define __44 15
 
 
 static vertex_t vertices[MAX_VERTEX_COUNT];
@@ -16,13 +47,12 @@ static GLenum currentPrimitive = GL_TRIANGLES;
 static int vertexCount = 0;
 
 
-
 void aglBegin(GLenum prim)
 {
 	currentPrimitive = prim;
 	vertexCount = 0;
 
-	glVertexAttribPointer(ATTRIB_VERTEX, 3, GL_FLOAT, 0, sizeof(vertex_t), vertices[0].xyz);
+	glVertexAttribPointer(ATTRIB_VERTEX, 4, GL_FLOAT, 0, sizeof(vertex_t), vertices[0].xyzv);
 	glVertexAttribPointer(ATTRIB_COLOR, 4, GL_FLOAT, 0, sizeof(vertex_t), vertices[0].rgba);
 	
 	glEnableVertexAttribArray(ATTRIB_VERTEX);
@@ -30,12 +60,17 @@ void aglBegin(GLenum prim)
 }
 
 
+void aglBindTextureAttribute(GLint attributeHandle)
+{
+    glVertexAttribPointer(attributeHandle, 2, GL_FLOAT, 0, sizeof(vertex_t), vertices[0].st); 
+    glEnableVertexAttribArray(attributeHandle);
+}
+
+
 void aglVertex3f(float x, float y, float z)
 {
 	if (vertexCount > MAX_VERTEX_COUNT) return;
-	vertex.xyz[0] = x;
-	vertex.xyz[1] = y;
-	vertex.xyz[2] = z;
+    vec4Set(vertex.xyzv, x, y, z, 1.0f);
 	vertices[vertexCount] = vertex;
 	vertexCount++;
 }
@@ -43,17 +78,13 @@ void aglVertex3f(float x, float y, float z)
 
 void aglColor4f(float r, float g, float b, float a)
 {
-	vertex.rgba[0] = r;
-	vertex.rgba[1] = g;
-	vertex.rgba[2] = b;
-	vertex.rgba[3] = a;
+    vec4Set(vertex.rgba, r, g, b, a);
 }
 
 
 void aglTexCoord2f(float s, float t)
 {
-	vertex.st[0] = s;
-	vertex.st[1] = t;
+    vec2Set(vertex.st, s, t);
 }
 
 
@@ -216,4 +247,39 @@ void aglMatrixMultiply(float *mOut,
 	mOut[__42] = mA[__41]*mB[__12] + mA[__42]*mB[__22] + mA[__43]*mB[__32] + mA[__44]*mB[__42];
 	mOut[__43] = mA[__41]*mB[__13] + mA[__42]*mB[__23] + mA[__43]*mB[__33] + mA[__44]*mB[__43];
 	mOut[__44] = mA[__41]*mB[__14] + mA[__42]*mB[__24] + mA[__43]*mB[__34] + mA[__44]*mB[__44];
+}
+
+
+void aglOrtho(float *mOut, float left, float right, float bottom, float top, float zNear, float zFar)
+{
+    bzero(mOut, sizeof(float) * 16);
+    
+    if (right != left)
+    {
+        mOut[ 0] = 2 / (right - left);
+        mOut[ 1] = 0;
+        mOut[ 2] = 0;
+        mOut[ 3] = - ((right + left) / (right - left));
+    }
+    
+    if (top != bottom)
+    {
+        mOut[ 4] = 0;
+        mOut[ 5] = 2 / (top - bottom);
+        mOut[ 6] = 0;
+        mOut[ 7] = - ((top + bottom) / (top - bottom));
+    }
+	
+    if (zFar != zNear)
+    {
+        mOut[ 8] = 0;
+        mOut[ 9] = 0;
+        mOut[10] = -2 / (zFar - zNear);
+        mOut[11] = - ((zFar + zNear) / (zFar - zNear));
+    }
+	
+	mOut[12] = 0;
+	mOut[13] = 0;
+	mOut[14] = 0;
+	mOut[15] = 1;
 }

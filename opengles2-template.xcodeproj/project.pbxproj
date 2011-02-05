@@ -7,47 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D3623260D0F684500981E51 /* OpenGLTest3AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* OpenGLTest3AppDelegate.m */; };
+		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		2514C27210084DB100A42282 /* ES1Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2514C26E10084DB100A42282 /* ES1Renderer.m */; };
-		2514C27310084DB100A42282 /* ES2Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2514C27010084DB100A42282 /* ES2Renderer.m */; };
 		2514C27B10084DCA00A42282 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2514C27910084DCA00A42282 /* Shader.fsh */; };
 		2514C27C10084DCA00A42282 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2514C27A10084DCA00A42282 /* Shader.vsh */; };
-		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
-		28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
-		637421F911E5EA5F00DFBB47 /* opengles2-template-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 637421F811E5EA5F00DFBB47 /* opengles2-template-Info.plist */; };
-		63E09D3B11A3F89B007688EF /* lighting.frag in Sources */ = {isa = PBXBuildFile; fileRef = 63E09D3911A3F89B007688EF /* lighting.frag */; };
-		63E09D3C11A3F89B007688EF /* lighting.vert in Sources */ = {isa = PBXBuildFile; fileRef = 63E09D3A11A3F89B007688EF /* lighting.vert */; };
+		631ABB5512FBB63A00243329 /* TextureLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 631ABB5412FBB63A00243329 /* TextureLoader.m */; };
+		631ABB6912FBBABD00243329 /* wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 631ABB6812FBBABD00243329 /* wood.png */; };
+		631ABB6D12FBBB1C00243329 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631ABB6C12FBBB1C00243329 /* CoreGraphics.framework */; };
+		631ABE0B12FCC94300243329 /* GLES1Surface.m in Sources */ = {isa = PBXBuildFile; fileRef = 631ABE0412FCC94300243329 /* GLES1Surface.m */; };
+		631ABE0C12FCC94300243329 /* GLES2Surface.m in Sources */ = {isa = PBXBuildFile; fileRef = 631ABE0612FCC94300243329 /* GLES2Surface.m */; };
+		631ABE0D12FCC94300243329 /* GLESSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = 631ABE0812FCC94300243329 /* GLESSurface.m */; };
+		631ABE0E12FCC94300243329 /* GLESView.m in Sources */ = {isa = PBXBuildFile; fileRef = 631ABE0A12FCC94300243329 /* GLESView.m */; };
+		631ABE1612FCCA1200243329 /* GLESViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 631ABE1512FCCA1200243329 /* GLESViewController.m */; };
 		63EEA42911A251A20047F51E /* RenderController.c in Sources */ = {isa = PBXBuildFile; fileRef = 63EEA42811A251A20047F51E /* RenderController.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D3623240D0F684500981E51 /* OpenGLTest3AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLTest3AppDelegate.h; sourceTree = "<group>"; };
-		1D3623250D0F684500981E51 /* OpenGLTest3AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLTest3AppDelegate.m; sourceTree = "<group>"; };
+		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* opengles2_Template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = opengles2_Template.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		2514C26D10084DB100A42282 /* ES1Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ES1Renderer.h; sourceTree = "<group>"; };
-		2514C26E10084DB100A42282 /* ES1Renderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ES1Renderer.m; sourceTree = "<group>"; };
-		2514C26F10084DB100A42282 /* ES2Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ES2Renderer.h; sourceTree = "<group>"; };
-		2514C27010084DB100A42282 /* ES2Renderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ES2Renderer.m; sourceTree = "<group>"; };
-		2514C27110084DB100A42282 /* ESRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRenderer.h; sourceTree = "<group>"; };
 		2514C27910084DCA00A42282 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
 		2514C27A10084DCA00A42282 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
-		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		28FD14FC0DC6FC130079059D /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
-		28FD14FD0DC6FC130079059D /* EAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		631ABB5312FBB63A00243329 /* TextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureLoader.h; sourceTree = "<group>"; };
+		631ABB5412FBB63A00243329 /* TextureLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureLoader.m; sourceTree = "<group>"; };
+		631ABB6812FBBABD00243329 /* wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood.png; sourceTree = "<group>"; };
+		631ABB6C12FBBB1C00243329 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		631ABE0312FCC94300243329 /* GLES1Surface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES1Surface.h; sourceTree = "<group>"; };
+		631ABE0412FCC94300243329 /* GLES1Surface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLES1Surface.m; sourceTree = "<group>"; };
+		631ABE0512FCC94300243329 /* GLES2Surface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES2Surface.h; sourceTree = "<group>"; };
+		631ABE0612FCC94300243329 /* GLES2Surface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLES2Surface.m; sourceTree = "<group>"; };
+		631ABE0712FCC94300243329 /* GLESSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESSurface.h; sourceTree = "<group>"; };
+		631ABE0812FCC94300243329 /* GLESSurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLESSurface.m; sourceTree = "<group>"; };
+		631ABE0912FCC94300243329 /* GLESView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESView.h; sourceTree = "<group>"; };
+		631ABE0A12FCC94300243329 /* GLESView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLESView.m; sourceTree = "<group>"; };
+		631ABE1412FCCA1200243329 /* GLESViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESViewController.h; sourceTree = "<group>"; };
+		631ABE1512FCCA1200243329 /* GLESViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLESViewController.m; sourceTree = "<group>"; };
 		637421F811E5EA5F00DFBB47 /* opengles2-template-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "opengles2-template-Info.plist"; sourceTree = "<group>"; };
 		637421FA11E5EA6A00DFBB47 /* opengles2-template_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "opengles2-template_Prefix.pch"; sourceTree = "<group>"; };
-		63E09D3911A3F89B007688EF /* lighting.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = lighting.frag; path = Shaders/lighting.frag; sourceTree = "<group>"; };
-		63E09D3A11A3F89B007688EF /* lighting.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = lighting.vert; path = Shaders/lighting.vert; sourceTree = "<group>"; };
 		63EEA42711A251970047F51E /* RenderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderController.h; sourceTree = "<group>"; };
 		63EEA42811A251A20047F51E /* RenderController.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = RenderController.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +66,7 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */,
 				28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */,
+				631ABB6D12FBBB1C00243329 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,17 +76,22 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2514C26D10084DB100A42282 /* ES1Renderer.h */,
-				2514C26E10084DB100A42282 /* ES1Renderer.m */,
-				2514C26F10084DB100A42282 /* ES2Renderer.h */,
-				2514C27010084DB100A42282 /* ES2Renderer.m */,
-				2514C27110084DB100A42282 /* ESRenderer.h */,
-				28FD14FC0DC6FC130079059D /* EAGLView.h */,
-				28FD14FD0DC6FC130079059D /* EAGLView.m */,
-				1D3623240D0F684500981E51 /* OpenGLTest3AppDelegate.h */,
-				1D3623250D0F684500981E51 /* OpenGLTest3AppDelegate.m */,
+				631ABE0312FCC94300243329 /* GLES1Surface.h */,
+				631ABE0412FCC94300243329 /* GLES1Surface.m */,
+				631ABE0512FCC94300243329 /* GLES2Surface.h */,
+				631ABE0612FCC94300243329 /* GLES2Surface.m */,
+				631ABE0712FCC94300243329 /* GLESSurface.h */,
+				631ABE0812FCC94300243329 /* GLESSurface.m */,
+				631ABE0912FCC94300243329 /* GLESView.h */,
+				631ABE0A12FCC94300243329 /* GLESView.m */,
+				631ABB5312FBB63A00243329 /* TextureLoader.h */,
+				631ABB5412FBB63A00243329 /* TextureLoader.m */,
+				1D3623240D0F684500981E51 /* AppDelegate.h */,
+				1D3623250D0F684500981E51 /* AppDelegate.m */,
 				63EEA42711A251970047F51E /* RenderController.h */,
 				63EEA42811A251A20047F51E /* RenderController.c */,
+				631ABE1412FCCA1200243329 /* GLESViewController.h */,
+				631ABE1512FCCA1200243329 /* GLESViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -96,8 +107,6 @@
 		2514C27610084DB600A42282 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				63E09D3911A3F89B007688EF /* lighting.frag */,
-				63E09D3A11A3F89B007688EF /* lighting.vert */,
 				2514C27910084DCA00A42282 /* Shader.fsh */,
 				2514C27A10084DCA00A42282 /* Shader.vsh */,
 			);
@@ -129,8 +138,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				631ABB6812FBBABD00243329 /* wood.png */,
 				637421F811E5EA5F00DFBB47 /* opengles2-template-Info.plist */,
-				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -142,6 +151,7 @@
 				28FD14FF0DC6FC520079059D /* OpenGLES.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				631ABB6C12FBBB1C00243329 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -149,9 +159,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* OpenGLTest3 */ = {
+		1D6058900D05DD3D006BFB54 /* opengles2-template */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "OpenGLTest3" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "opengles2-template" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -161,7 +171,7 @@
 			);
 			dependencies = (
 			);
-			name = OpenGLTest3;
+			name = "opengles2-template";
 			productName = OpenGLTest3;
 			productReference = 1D6058910D05DD3D006BFB54 /* opengles2_Template.app */;
 			productType = "com.apple.product-type.application";
@@ -173,12 +183,19 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "opengles2-template" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* OpenGLTest3 */,
+				1D6058900D05DD3D006BFB54 /* opengles2-template */,
 			);
 		};
 /* End PBXProject section */
@@ -190,8 +207,7 @@
 			files = (
 				2514C27B10084DCA00A42282 /* Shader.fsh in Resources */,
 				2514C27C10084DCA00A42282 /* Shader.vsh in Resources */,
-				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				637421F911E5EA5F00DFBB47 /* opengles2-template-Info.plist in Resources */,
+				631ABB6912FBBABD00243329 /* wood.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,13 +219,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				1D3623260D0F684500981E51 /* OpenGLTest3AppDelegate.m in Sources */,
-				28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */,
-				2514C27210084DB100A42282 /* ES1Renderer.m in Sources */,
-				2514C27310084DB100A42282 /* ES2Renderer.m in Sources */,
+				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				63EEA42911A251A20047F51E /* RenderController.c in Sources */,
-				63E09D3B11A3F89B007688EF /* lighting.frag in Sources */,
-				63E09D3C11A3F89B007688EF /* lighting.vert in Sources */,
+				631ABB5512FBB63A00243329 /* TextureLoader.m in Sources */,
+				631ABE0B12FCC94300243329 /* GLES1Surface.m in Sources */,
+				631ABE0C12FCC94300243329 /* GLES2Surface.m in Sources */,
+				631ABE0D12FCC94300243329 /* GLESSurface.m in Sources */,
+				631ABE0E12FCC94300243329 /* GLESView.m in Sources */,
+				631ABE1612FCCA1200243329 /* GLESViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +245,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "opengles2-template-Info.plist";
 				PRODUCT_NAME = opengles2_Template;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -255,7 +273,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -270,7 +288,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
@@ -278,7 +296,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "OpenGLTest3" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "opengles2-template" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,

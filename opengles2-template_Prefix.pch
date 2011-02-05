@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'OpenGLTest3' target in the 'OpenGLTest3' project
+// Prefix header for all source files of the 'opengles2-template' target in the 'opengles2-template' project
 //
 
 #import <Availability.h>
