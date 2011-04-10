@@ -79,8 +79,9 @@
     cameraLocation = glGetUniformLocation(shaderProgram, "camera");
     sampleLocation = glGetUniformLocation(shaderProgram, "color_sampler");
     texCoordLocation = glGetAttribLocation(shaderProgram, "texCoord");
+        timeLocation = glGetUniformLocation(shaderProgram, "time");
     
-    LoadTexture("wood.png", &textureHandle); 
+    LoadTexture("lena.png", &textureHandle); 
 }
 
 
@@ -102,10 +103,21 @@
     glShaderSource(shader, 1, &source, NULL);
     glCompileShader(shader);
     glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
-    assert(status != 0);
     
-    glAttachShader(shaderProgram, shader);
-    return shader;
+    if (status == 0)
+    {
+        GLchar log[2048];
+        GLsizei len;
+        
+        glGetShaderInfoLog(shader, 2048, &len, log);
+        printf("%s\n", log);
+        return 0;
+    }
+    else 
+    {
+        glAttachShader(shaderProgram, shader);
+        return shader;
+    }
 }
 
 
@@ -176,17 +188,17 @@ static float zMove = 0.0f;
 	
     // Use shader program
 	glUseProgram(shaderProgram);
-	zMove += 0.05f;
+	zMove += 0.02f;
 	zRotate += 0.05f;
     
 	vec3Set(camera.eye, 0.0f, 0.0f, -5.0f + sin(zMove));
 	vec3Set(camera.center, sin(zMove), 0.0f, 10.0f);
 	vec3Set(camera.up, 0.0f, 1.0f, 0.0f);
     
-#if 1
+#if 0
 	aglMatrixLookAtRH(cameraMatrix, camera.eye, camera.center, camera.up);
 #else
-    aglOrtho(cameraMatrix, -1.0f, 1.0f, -1.333333f, 1.333333f,  -10000.0f, 10000.0f);
+    aglOrtho(cameraMatrix, -1.0f, 1.0f, -1.5f, 1.5f,  -10000.0f, 10000.0f);
 #endif	
 	
 	aglMatrixRotationZ(rotationMatrix, zRotate);
@@ -197,28 +209,40 @@ static float zMove = 0.0f;
     glBindTexture(GL_TEXTURE_2D, textureHandle);
     glUniform1i(sampleLocation, 0);
     
+    glUniform1f(timeLocation, zMove); // sin(zMove));
+    
 	aglBegin(GL_TRIANGLE_STRIP);
     aglBindTextureAttribute(texCoordLocation);
 	
+    aglTexCoord2f(1.0f, 0.0f);
+	aglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+    aglVertex3f(-1.0f, -1.5f, 0.0f);
+    
+	aglTexCoord2f(1.0f, 1.0f);
+    aglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+	aglVertex3f(1.0f, -1.5f, 0.0f);
+    
     aglTexCoord2f(0.0f, 0.0f);
 	aglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-    aglVertex3f(-0.5f, -0.5f, 0.0f);
-    
-	aglTexCoord2f(1.0f, 0.0f);
-    aglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-	aglVertex3f(0.5f, -0.5f, 0.0f);
+    aglVertex3f(-1.0f, 1.5f, 0.0f);
     
     aglTexCoord2f(0.0f, 1.0f);
 	aglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-    aglVertex3f(-0.5f, 0.5f, 0.0f);
-    
-    aglTexCoord2f(1.0f, 1.0f);
-	aglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-    aglVertex3f(0.5f, 0.5f, 0.0f);
+    aglVertex3f(1.0f, 1.5f, 0.0f);
     
 	aglEnd();
 	
     [glView swapBuffers];
+    
+    ++frames;
+    CurrentTime = CACurrentMediaTime();
+    
+    if ((CurrentTime - LastFPSUpdate) > 1.0f)
+    {
+        printf("fps: %d\n", frames);
+        frames = 0;
+        LastFPSUpdate = CurrentTime;
+    } 
 }
 
 

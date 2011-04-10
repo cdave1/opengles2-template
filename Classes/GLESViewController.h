@@ -36,7 +36,7 @@
     GLint texCoordLocation;
     GLint cameraLocation;
     GLint sampleLocation;
-    
+    GLint timeLocation;
     GLuint shaderProgram;
     GLuint cameraUniform;
     
@@ -45,6 +45,10 @@
     float cameraMatrix[16]; // column major order
     float rotationMatrix[16];
     vec4_t translationVector;
+    
+    int frames;
+    CFTimeInterval CurrentTime;
+    CFTimeInterval LastFPSUpdate;
 }
 
 - (id)initWithFrame:(CGRect)frame;

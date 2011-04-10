@@ -16,13 +16,15 @@
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		631ABB5512FBB63A00243329 /* TextureLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 631ABB5412FBB63A00243329 /* TextureLoader.m */; };
-		631ABB6912FBBABD00243329 /* wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 631ABB6812FBBABD00243329 /* wood.png */; };
 		631ABB6D12FBBB1C00243329 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631ABB6C12FBBB1C00243329 /* CoreGraphics.framework */; };
 		631ABE0B12FCC94300243329 /* GLES1Surface.m in Sources */ = {isa = PBXBuildFile; fileRef = 631ABE0412FCC94300243329 /* GLES1Surface.m */; };
 		631ABE0C12FCC94300243329 /* GLES2Surface.m in Sources */ = {isa = PBXBuildFile; fileRef = 631ABE0612FCC94300243329 /* GLES2Surface.m */; };
 		631ABE0D12FCC94300243329 /* GLESSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = 631ABE0812FCC94300243329 /* GLESSurface.m */; };
 		631ABE0E12FCC94300243329 /* GLESView.m in Sources */ = {isa = PBXBuildFile; fileRef = 631ABE0A12FCC94300243329 /* GLESView.m */; };
 		631ABE1612FCCA1200243329 /* GLESViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 631ABE1512FCCA1200243329 /* GLESViewController.m */; };
+		637BC06F1351E155001A35DC /* lena.png in Resources */ = {isa = PBXBuildFile; fileRef = 637BC06E1351E155001A35DC /* lena.png */; };
+		637BC0711351E766001A35DC /* whirly.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 637BC0701351E766001A35DC /* whirly.fsh */; };
+		637BC0721351E809001A35DC /* whirly.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 637BC0701351E766001A35DC /* whirly.fsh */; };
 		63EEA42911A251A20047F51E /* RenderController.c in Sources */ = {isa = PBXBuildFile; fileRef = 63EEA42811A251A20047F51E /* RenderController.c */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +41,6 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		631ABB5312FBB63A00243329 /* TextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureLoader.h; sourceTree = "<group>"; };
 		631ABB5412FBB63A00243329 /* TextureLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureLoader.m; sourceTree = "<group>"; };
-		631ABB6812FBBABD00243329 /* wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood.png; sourceTree = "<group>"; };
 		631ABB6C12FBBB1C00243329 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		631ABE0312FCC94300243329 /* GLES1Surface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES1Surface.h; sourceTree = "<group>"; };
 		631ABE0412FCC94300243329 /* GLES1Surface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLES1Surface.m; sourceTree = "<group>"; };
@@ -53,6 +54,8 @@
 		631ABE1512FCCA1200243329 /* GLESViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLESViewController.m; sourceTree = "<group>"; };
 		637421F811E5EA5F00DFBB47 /* opengles2-template-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "opengles2-template-Info.plist"; sourceTree = "<group>"; };
 		637421FA11E5EA6A00DFBB47 /* opengles2-template_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "opengles2-template_Prefix.pch"; sourceTree = "<group>"; };
+		637BC06E1351E155001A35DC /* lena.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lena.png; sourceTree = "<group>"; };
+		637BC0701351E766001A35DC /* whirly.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = whirly.fsh; path = Shaders/whirly.fsh; sourceTree = "<group>"; };
 		63EEA42711A251970047F51E /* RenderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderController.h; sourceTree = "<group>"; };
 		63EEA42811A251A20047F51E /* RenderController.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = RenderController.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +112,7 @@
 			children = (
 				2514C27910084DCA00A42282 /* Shader.fsh */,
 				2514C27A10084DCA00A42282 /* Shader.vsh */,
+				637BC0701351E766001A35DC /* whirly.fsh */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -138,8 +142,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				631ABB6812FBBABD00243329 /* wood.png */,
 				637421F811E5EA5F00DFBB47 /* opengles2-template-Info.plist */,
+				637BC06E1351E155001A35DC /* lena.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -205,9 +209,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				637BC0721351E809001A35DC /* whirly.fsh in Resources */,
 				2514C27B10084DCA00A42282 /* Shader.fsh in Resources */,
 				2514C27C10084DCA00A42282 /* Shader.vsh in Resources */,
-				631ABB6912FBBABD00243329 /* wood.png in Resources */,
+				637BC06F1351E155001A35DC /* lena.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +232,7 @@
 				631ABE0D12FCC94300243329 /* GLESSurface.m in Sources */,
 				631ABE0E12FCC94300243329 /* GLESView.m in Sources */,
 				631ABE1612FCCA1200243329 /* GLESViewController.m in Sources */,
+				637BC0711351E766001A35DC /* whirly.fsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,30 +242,21 @@
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "opengles2-template_Prefix.pch";
-				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "opengles2-template-Info.plist";
 				PRODUCT_NAME = opengles2_Template;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "opengles2-template_Prefix.pch";
-				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "opengles2-template-Info.plist";
 				PRODUCT_NAME = opengles2_Template;
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -267,14 +264,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
+				GCC_VERSION = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -282,14 +279,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_VERSION = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
