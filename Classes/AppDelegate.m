@@ -53,7 +53,6 @@
 - (void)dealloc {
     [self.window release];
     [self.viewController release];
-    
     [super dealloc];
 }
 

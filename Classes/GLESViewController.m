@@ -51,7 +51,7 @@
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
-    [view  setMultipleTouchEnabled:YES];
+    [view setMultipleTouchEnabled:YES];
 
     self.preferredFramesPerSecond = 60;
     [self setupGL];
@@ -143,7 +143,19 @@
 }
 
 
+static float zMove = 0.0f;
 - (void)update {
+
+    zMove += 0.02f;
+    zRotate += 0.05f;
+
+    vec3Set(camera.eye, 0.0f, 0.0f, -5.0f + sin(zMove));
+    vec3Set(camera.center, sin(zMove), 0.0f, 10.0f);
+    vec3Set(camera.up, 0.0f, 1.0f, 0.0f);
+
+    aglOrtho(cameraMatrix, -1.0f, 1.0f, -1.5f, 1.5f,  -10000.0f, 10000.0f);
+    aglMatrixRotationZ(rotationMatrix, zRotate);
+
     ++frames;
     CurrentTime = CACurrentMediaTime();
 
@@ -159,23 +171,11 @@
 }
 
 
-static float zMove = 0.0f;
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
     glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    // Use shader program
     glUseProgram(shaderProgram);
-    zMove += 0.02f;
-    zRotate += 0.05f;
-
-    vec3Set(camera.eye, 0.0f, 0.0f, -5.0f + sin(zMove));
-    vec3Set(camera.center, sin(zMove), 0.0f, 10.0f);
-    vec3Set(camera.up, 0.0f, 1.0f, 0.0f);
-
-    aglOrtho(cameraMatrix, -1.0f, 1.0f, -1.5f, 1.5f,  -10000.0f, 10000.0f);
-    aglMatrixRotationZ(rotationMatrix, zRotate);
-
     glUniformMatrix4fv(cameraLocation, 1, GL_FALSE, cameraMatrix);
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, textureHandle);
@@ -205,15 +205,6 @@ static float zMove = 0.0f;
     aglVertex3f(1.0f, 1.5f, 0.0f);
     
     aglEnd();
-    
-    ++frames;
-    CurrentTime = CACurrentMediaTime();
-    
-    if ((CurrentTime - LastFPSUpdate) > 1.0f) {
-        printf("fps: %d\n", frames);
-        frames = 0;
-        LastFPSUpdate = CurrentTime;
-    }
 }
 
 @end
