@@ -85,8 +85,8 @@
     [EAGLContext setCurrentContext:self.context];
 
     glEnable(GL_LINE_SMOOTH);
-	glLineWidth(1.0f);
-    
+    glLineWidth(1.0f);
+
     shaderProgram = glCreateProgram();
 
     GLuint vertexShader = [self compileShader:[[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"vsh"] withType:GL_VERTEX_SHADER];
@@ -145,17 +145,17 @@
 
 - (void)update {
     ++frames;
-	CurrentTime = CACurrentMediaTime();
+    CurrentTime = CACurrentMediaTime();
 
-	if ((CurrentTime - LastFPSUpdate) > 1.0f) {
+    if ((CurrentTime - LastFPSUpdate) > 1.0f) {
         if (self.delegate) {
             [self.delegate performSelector:@selector(ReportFPS:) withObject:[NSNumber numberWithFloat:frames]];
         }
 
-		printf("fps: %d\n", frames);
-		frames = 0;
-		LastFPSUpdate = CurrentTime;
-	}
+        printf("fps: %d\n", frames);
+        frames = 0;
+        LastFPSUpdate = CurrentTime;
+    }
 }
 
 
@@ -165,57 +165,50 @@ static float zMove = 0.0f;
     glClear(GL_COLOR_BUFFER_BIT);
 
     // Use shader program
-	glUseProgram(shaderProgram);
-	zMove += 0.02f;
-	zRotate += 0.05f;
+    glUseProgram(shaderProgram);
+    zMove += 0.02f;
+    zRotate += 0.05f;
 
-	vec3Set(camera.eye, 0.0f, 0.0f, -5.0f + sin(zMove));
-	vec3Set(camera.center, sin(zMove), 0.0f, 10.0f);
-	vec3Set(camera.up, 0.0f, 1.0f, 0.0f);
+    vec3Set(camera.eye, 0.0f, 0.0f, -5.0f + sin(zMove));
+    vec3Set(camera.center, sin(zMove), 0.0f, 10.0f);
+    vec3Set(camera.up, 0.0f, 1.0f, 0.0f);
 
-#if 0
-	aglMatrixLookAtRH(cameraMatrix, camera.eye, camera.center, camera.up);
-#else
     aglOrtho(cameraMatrix, -1.0f, 1.0f, -1.5f, 1.5f,  -10000.0f, 10000.0f);
-#endif
+    aglMatrixRotationZ(rotationMatrix, zRotate);
 
-	aglMatrixRotationZ(rotationMatrix, zRotate);
-	glUniformMatrix4fv(cameraLocation, 1, GL_FALSE, cameraMatrix);
-
-
-	glActiveTexture(GL_TEXTURE0);
+    glUniformMatrix4fv(cameraLocation, 1, GL_FALSE, cameraMatrix);
+    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, textureHandle);
     glUniform1i(sampleLocation, 0);
+    glUniform1f(timeLocation, zMove);
 
-    glUniform1f(timeLocation, zMove); // sin(zMove));
-
-	aglBegin(GL_TRIANGLE_STRIP);
+    aglBegin(GL_TRIANGLE_STRIP);
 
     aglBindPositionAttribute(positionLocation);
     aglBindColorAttribute(colorLocation);
     aglBindTextureAttribute(texCoordLocation);
-
+    
     aglTexCoord2f(1.0f, 0.0f);
-	aglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-    aglVertex3f(-1.0f, -1.5f, 0.0f);
-
-	aglTexCoord2f(1.0f, 1.0f);
     aglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-	aglVertex3f(1.0f, -1.5f, 0.0f);
-
+    aglVertex3f(-1.0f, -1.5f, 0.0f);
+    
+    aglTexCoord2f(1.0f, 1.0f);
+    aglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+    aglVertex3f(1.0f, -1.5f, 0.0f);
+    
     aglTexCoord2f(0.0f, 0.0f);
-	aglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+    aglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
     aglVertex3f(-1.0f, 1.5f, 0.0f);
-
+    
     aglTexCoord2f(0.0f, 1.0f);
-	aglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+    aglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
     aglVertex3f(1.0f, 1.5f, 0.0f);
-
-	aglEnd();
-
+    
+    aglEnd();
+    
     ++frames;
     CurrentTime = CACurrentMediaTime();
-
+    
     if ((CurrentTime - LastFPSUpdate) > 1.0f) {
         printf("fps: %d\n", frames);
         frames = 0;
