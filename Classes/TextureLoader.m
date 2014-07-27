@@ -23,7 +23,7 @@
 
 extern void LoadTexture(const char *filename, GLuint *handle) {
 	CGImageRef spriteImage;
-	size_t	width, height;
+	GLsizei	width, height;
 	CGContextRef spriteContext;
 	GLubyte *spriteData;
 	
@@ -32,8 +32,8 @@ extern void LoadTexture(const char *filename, GLuint *handle) {
 	spriteImage = [UIImage imageNamed:fileName].CGImage;
 	[fileName release];
 	
-	width = CGImageGetWidth(spriteImage);
-	height = CGImageGetHeight(spriteImage);
+	width = (GLsizei) CGImageGetWidth(spriteImage);
+	height = (GLsizei) CGImageGetHeight(spriteImage);
 	
 	if(spriteImage) {
 		spriteData = (GLubyte *)calloc(1, width * height * 4);
