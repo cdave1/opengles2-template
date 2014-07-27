@@ -20,45 +20,39 @@
 
 
 #import "AppDelegate.h"
-#import "GLESViewController.h"
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions   
-{
-    CGRect	rect = [[UIScreen mainScreen] bounds];
-	window = [[UIWindow alloc] initWithFrame:rect];
-	glViewController = [[GLESViewController alloc] initWithFrame:rect];
-	
-	[window addSubview:glViewController.view];
-	[window makeKeyAndVisible];
-    
-    [glViewController startAnimation];
-    
-    
-    
-    return YES;
+- (void) applicationDidFinishLaunching:(UIApplication*)application {
+    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        self.viewController = [[[GLESViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil] autorelease];
+    } else {
+        self.viewController = [[[GLESViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil] autorelease];
+    }
+
+    scale = [[UIScreen mainScreen] scale];
+	screenWidth = scale * [[UIScreen mainScreen] bounds].size.width;
+	screenHeight = scale * [[UIScreen mainScreen] bounds].size.height;
+
+    self.window.rootViewController = self.viewController;
+    [self.window makeKeyAndVisible];
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    [glViewController stopAnimation];
-}
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    [glViewController startAnimation];
-}
+- (void)applicationWillResignActive:(UIApplication *)application {}
 
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    [glViewController stopAnimation];
-}
 
-- (void)dealloc
-{
-    [window release];
-    [glViewController release];
+- (void)applicationDidBecomeActive:(UIApplication *)application {}
+
+
+- (void)applicationWillTerminate:(UIApplication *)application {}
+
+
+- (void)dealloc {
+    [self.window release];
+    [self.viewController release];
 
     [super dealloc];
 }

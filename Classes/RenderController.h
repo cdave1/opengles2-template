@@ -1,21 +1,21 @@
 /*
- 
+
  Copyright (c) 2011 David Petrie david@davidpetrie.com
- 
+
  This software is provided 'as-is', without any express or implied warranty.
- In no event will the authors be held liable for any damages arising from the 
+ In no event will the authors be held liable for any damages arising from the
  use of this software. Permission is granted to anyone to use this software for
- any purpose, including commercial applications, and to alter it and 
+ any purpose, including commercial applications, and to alter it and
  redistribute it freely, subject to the following restrictions:
- 
- 1. The origin of this software must not be misrepresented; you must not claim 
- that you wrote the original software. If you use this software in a product, an 
- acknowledgment in the product documentation would be appreciated but is not 
+
+ 1. The origin of this software must not be misrepresented; you must not claim
+ that you wrote the original software. If you use this software in a product, an
+ acknowledgment in the product documentation would be appreciated but is not
  required.
- 2. Altered source versions must be plainly marked as such, and must not be 
+ 2. Altered source versions must be plainly marked as such, and must not be
  misrepresented as being the original software.
  3. This notice may not be removed or altered from any source distribution.
- 
+
  */
 
 #ifndef RENDER_CONTROLLER_H
@@ -56,13 +56,6 @@ typedef vec4_t color4_t;
 #define __44 15
 
 
-enum {
-    ATTRIB_VERTEX,
-    ATTRIB_COLOR,
-    ATTRIB_TEXCOORD
-};
-
-
 typedef struct camera_s
 {
 	vec3_t eye;
@@ -75,50 +68,52 @@ typedef struct camera_s
 extern "C" {
 #endif
 
-void aglBindTextureAttribute(GLint attributeHandle);
+    void aglBindPositionAttribute(GLint attributeHandle);
 
-void aglCross3(vec3_t vOut, const vec3_t a, const vec3_t b);
+    void aglBindColorAttribute(GLint attributeHandle);
 
-void aglNormalize3(vec3_t vOut, const vec3_t vec);
+    void aglBindTextureAttribute(GLint attributeHandle);
 
-void aglMatrixMultiply(float *mOut,
-					   const float *mA,
-					   const float *mB);
+    void aglCross3(vec3_t vOut, const vec3_t a, const vec3_t b);
 
-void aglBegin(GLenum prim);
+    void aglNormalize3(vec3_t vOut, const vec3_t vec);
 
-void aglVertex3f(float x, float y, float z);
+    void aglMatrixMultiply(float *mOut,
+                           const float *mA,
+                           const float *mB);
 
-void aglColor4f(float r, float g, float b, float a);
+    void aglBegin(GLenum prim);
 
-void aglTexCoord2f(float s, float t);
+    void aglVertex3f(float x, float y, float z);
 
-void aglEnd();
+    void aglColor4f(float r, float g, float b, float a);
 
-void aglError(const char *source);
+    void aglTexCoord2f(float s, float t);
 
-void aglMatrixTranslation(
-					   float	*mOut,
-					   const float	fX,
-					   const float	fY,
-					   const float	fZ);
+    void aglEnd();
 
-void aglMatrixRotationZ(float	*mOut,
-						const float fAngle);
+    void aglError(const char *source);
 
-void aglMatrixPerspectiveFovRH(
-							float	*mOut,
-							const float	fFOVy,
-							const float	fAspect,
-							const float	fNear,
-							const float	fFar);
+    void aglMatrixTranslation(float	*mOut,
+                              const float	fX,
+                              const float	fY,
+                              const float	fZ);
 
-void aglMatrixLookAtRH(float *mOut, const vec3_t vEye, const vec3_t vAt, const vec3_t vUp);
+    void aglMatrixRotationZ(float	*mOut,
+                            const float fAngle);
 
-void aglOrtho(float *mOut, float left, float right, float bottom, float top, float zNear, float zFar);
-
+    void aglMatrixPerspectiveFovRH(float	*mOut,
+                                   const float	fFOVy,
+                                   const float	fAspect,
+                                   const float	fNear,
+                                   const float	fFar);
+    
+    void aglMatrixLookAtRH(float *mOut, const vec3_t vEye, const vec3_t vAt, const vec3_t vUp);
+    
+    void aglOrtho(float *mOut, float left, float right, float bottom, float top, float zNear, float zFar);
+    
 #ifdef __cplusplus
 }
 #endif
-    
+
 #endif

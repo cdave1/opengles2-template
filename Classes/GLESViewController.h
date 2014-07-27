@@ -18,22 +18,19 @@
  
  */
 
-#import "GLESView.h"
+#import <UIKit/UIKit.h>
+#import <GLKit/GLKit.h>
+
 #import "RenderController.h"
 
-@interface GLESViewController : UIViewController 
-{
-    GLESView * glView;
-    BOOL animating;
-    BOOL displayLinkSupported;
-    NSInteger animationFrameInterval;
-    NSTimer *animationTimer;
-    CADisplayLink * displayLink;
-    
-    
+@interface GLESViewController : GLKViewController {
     GLuint textureHandle;
-    
+
+    GLint positionLocation;
+    GLint colorLocation;
     GLint texCoordLocation;
+
+
     GLint cameraLocation;
     GLint sampleLocation;
     GLint timeLocation;
@@ -50,9 +47,5 @@
     CFTimeInterval CurrentTime;
     CFTimeInterval LastFPSUpdate;
 }
-
-- (id)initWithFrame:(CGRect)frame;
-- (void)startAnimation;
-- (void)stopAnimation;
 
 @end

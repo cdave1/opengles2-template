@@ -19,13 +19,14 @@
  */
 
 #import <UIKit/UIKit.h>
-
-@class GLESViewController;
+#import "GLESViewController.h"
 
 @interface AppDelegate : NSObject <UIApplicationDelegate> {
-    UIWindow *window;
-    GLESViewController *glViewController;
+    float screenWidth, screenHeight, scale;
 }
+
+@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) GLESViewController *viewController;
 
 @end
 

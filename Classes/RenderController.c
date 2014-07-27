@@ -23,8 +23,7 @@
 
 #define MAX_VERTEX_COUNT 8192
 
-typedef struct vertex 
-{
+typedef struct vertex {
 	float xyzv[4];
 	float st[2];
 	float rgba[4];
@@ -37,28 +36,31 @@ static GLenum currentPrimitive = GL_TRIANGLES;
 static int vertexCount = 0;
 
 
-void aglBegin(GLenum prim)
-{
+void aglBegin(GLenum prim) {
 	currentPrimitive = prim;
 	vertexCount = 0;
-
-	glVertexAttribPointer(ATTRIB_VERTEX, 4, GL_FLOAT, 0, sizeof(vertex_t), vertices[0].xyzv);
-	glVertexAttribPointer(ATTRIB_COLOR, 4, GL_FLOAT, 0, sizeof(vertex_t), vertices[0].rgba);
-	
-	glEnableVertexAttribArray(ATTRIB_VERTEX);
-	glEnableVertexAttribArray(ATTRIB_COLOR);
 }
 
 
-void aglBindTextureAttribute(GLint attributeHandle)
-{
+void aglBindPositionAttribute(GLint attributeHandle) {
+	glVertexAttribPointer(attributeHandle, 4, GL_FLOAT, 0, sizeof(vertex_t), vertices[0].xyzv);
+    glEnableVertexAttribArray(attributeHandle);
+}
+
+
+void aglBindColorAttribute(GLint attributeHandle) {
+	glVertexAttribPointer(attributeHandle, 4, GL_FLOAT, 0, sizeof(vertex_t), vertices[0].rgba);
+    glEnableVertexAttribArray(attributeHandle);
+}
+
+
+void aglBindTextureAttribute(GLint attributeHandle) {
     glVertexAttribPointer(attributeHandle, 2, GL_FLOAT, 0, sizeof(vertex_t), vertices[0].st); 
     glEnableVertexAttribArray(attributeHandle);
 }
 
 
-void aglVertex3f(float x, float y, float z)
-{
+void aglVertex3f(float x, float y, float z) {
 	if (vertexCount > MAX_VERTEX_COUNT) return;
     vec4Set(vertex.xyzv, x, y, z, 1.0f);
 	vertices[vertexCount] = vertex;
@@ -66,22 +68,18 @@ void aglVertex3f(float x, float y, float z)
 }
 
 
-void aglColor4f(float r, float g, float b, float a)
-{
+void aglColor4f(float r, float g, float b, float a) {
     vec4Set(vertex.rgba, r, g, b, a);
 }
 
 
-void aglTexCoord2f(float s, float t)
-{
+void aglTexCoord2f(float s, float t) {
     vec2Set(vertex.st, s, t);
 }
 
 
-void aglEnd()
-{
-	if (vertexCount == 0) 
-	{
+void aglEnd() {
+	if (vertexCount == 0) {
 		currentPrimitive = 0;
 		return;
 	}
@@ -91,12 +89,10 @@ void aglEnd()
 }
 
 
-void aglMatrixTranslation(
-					   float	*mOut,
-					   const float	fX,
-					   const float	fY,
-					   const float	fZ)
-{
+void aglMatrixTranslation(float	*mOut,
+                          const float	fX,
+                          const float	fY,
+                          const float	fZ) {
 	mOut[__11] = 1;	mOut[__12] = 0;	mOut[__13] = 0;	mOut[__14] = 0;
 	mOut[__21] = 0;	mOut[__22] = 1;	mOut[__23] = 0;	mOut[__24] = 0;
 	mOut[__31] = 0;	mOut[__32] = 0;	mOut[__33] = 1;	mOut[__34] = 0;
@@ -105,8 +101,7 @@ void aglMatrixTranslation(
 
 
 void aglMatrixRotationZ(float	*mOut,
-					 const float fAngle)
-{
+					 const float fAngle) {
 	float fsin = sinf(fAngle);
 	float fcos = cosf(fAngle);
 	
@@ -117,13 +112,11 @@ void aglMatrixRotationZ(float	*mOut,
 }
 
 
-void aglMatrixPerspectiveFovRH(
-							float	*mOut,
-							const float	fFOVy,
-							const float	fAspect,
-							const float	fNear,
-							const float	fFar)
-{
+void aglMatrixPerspectiveFovRH(float	 *mOut,
+                               const float	fFOVy,
+                               const float	fAspect,
+                               const float	fNear,
+                               const float	fFar) {
 	float f, n, fRealAspect;
 	
 	fRealAspect = fAspect;
@@ -154,8 +147,7 @@ void aglMatrixPerspectiveFovRH(
 }
 
 
-void aglCross3(vec3_t vOut, const vec3_t a, const vec3_t b)
-{
+void aglCross3(vec3_t vOut, const vec3_t a, const vec3_t b) {
 	vec3Set(vOut,
 			(a[1] * b[2]) - (a[2] * b[1]),
 			(a[2] * b[0]) - (a[0] * b[2]),
@@ -163,9 +155,8 @@ void aglCross3(vec3_t vOut, const vec3_t a, const vec3_t b)
 }
 
 
-void aglNormalize3(vec3_t vOut, const vec3_t vec)
-{
-	float	f;
+void aglNormalize3(vec3_t vOut, const vec3_t vec) {
+	float f;
 	double temp;
 	
 	temp = (double)(vec[0] * vec[0] + vec[1] * vec[1] + vec[2] * vec[2]);
@@ -175,8 +166,7 @@ void aglNormalize3(vec3_t vOut, const vec3_t vec)
 }
 
 
-void aglMatrixLookAtRH(float *mOut, const vec3_t vEye, const vec3_t vAt, const vec3_t vUp)
-{
+void aglMatrixLookAtRH(float *mOut, const vec3_t vEye, const vec3_t vAt, const vec3_t vUp) {
 	vec3_t f, vUpActual, s, u;
 	float	t[16];
 	
@@ -216,8 +206,7 @@ void aglMatrixLookAtRH(float *mOut, const vec3_t vEye, const vec3_t vAt, const v
 
 void aglMatrixMultiply(float *mOut,
 					  const float *mA,
-					  const float *mB)
-{
+					  const float *mB) {
 	mOut[__11] = mA[__11]*mB[__11] + mA[__12]*mB[__21] + mA[__13]*mB[__31] + mA[__14]*mB[__41];	
 	mOut[__12] = mA[__11]*mB[__12] + mA[__12]*mB[__22] + mA[__13]*mB[__32] + mA[__14]*mB[__42];	
 	mOut[__13] = mA[__11]*mB[__13] + mA[__12]*mB[__23] + mA[__13]*mB[__33] + mA[__14]*mB[__43];	
@@ -240,28 +229,24 @@ void aglMatrixMultiply(float *mOut,
 }
 
 
-void aglOrtho(float *mOut, float left, float right, float bottom, float top, float zNear, float zFar)
-{
+void aglOrtho(float *mOut, float left, float right, float bottom, float top, float zNear, float zFar) {
     bzero(mOut, sizeof(float) * 16);
     
-    if (right != left)
-    {
+    if (right != left) {
         mOut[ 0] = 2 / (right - left);
         mOut[ 1] = 0;
         mOut[ 2] = 0;
         mOut[ 3] = - ((right + left) / (right - left));
     }
     
-    if (top != bottom)
-    {
+    if (top != bottom) {
         mOut[ 4] = 0;
         mOut[ 5] = 2 / (top - bottom);
         mOut[ 6] = 0;
         mOut[ 7] = - ((top + bottom) / (top - bottom));
     }
 	
-    if (zFar != zNear)
-    {
+    if (zFar != zNear) {
         mOut[ 8] = 0;
         mOut[ 9] = 0;
         mOut[10] = -2 / (zFar - zNear);
